@@ -1,0 +1,122 @@
+﻿<Page
+    x:Class="TDLApi.Views.CategoriesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TDLApi.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls10="using:Template10.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/TDLDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="categoriesItemTemplate">
+                <controls:SlidableListItem HorizontalAlignment="Stretch"
+                                           RightIcon="Delete"
+                                           LeftIcon="Edit"
+                                           RightLabel="Delete"
+                                           LeftLabel="Edit"
+                                           RightBackground="OrangeRed"
+                                           LeftBackground="LightSkyBlue"
+                                           RightForeground="AliceBlue"
+                                           LeftForeground="AliceBlue"
+                                           IsRightCommandEnabled="True"
+                                           IsLeftCommandEnabled="True"
+                                           IsOffsetLimited="True"
+                                           MouseSlidingEnabled="True"
+                                           IsPointerReleasedOnSwipingHandled="True"
+                                           LeftCommandRequested="categoriesItemTemplate_LeftCommandRequested"
+                                           RightCommandRequested="categoriesItemTemplate_RightCommandRequested">
+                    <Grid Height="Auto" MinHeight="60" Background="Transparent">
+                        <RelativePanel Margin="10,0,0,0">
+                            <Ellipse x:Name="colorCircle"
+                                     RelativePanel.AlignVerticalCenterWithPanel="True"
+                                     Width="30" 
+                                     Height="30" 
+                                     Fill="{Binding Hex}"/>
+                            <TextBlock RelativePanel.RightOf="colorCircle"
+                                       RelativePanel.AlignVerticalCenterWith="colorCircle"
+                                       Text="{Binding CatName}" 
+                                       FontSize="18"
+                                       Foreground="AliceBlue"
+                                       FontFamily="Fonts/MyriadPro_Regular.ttf#Myriad Pro"
+                                       Margin="10,5,0,0"/>
+                        </RelativePanel>
+                    </Grid>
+                </controls:SlidableListItem>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <CommandBar x:Name="myCommandBar">
+            <CommandBar.Content>
+                <TextBlock x:Name="pageNameTextBlock" 
+                           Margin="20,15,10,11"
+                           Text="Categories"
+                           FontSize="16"
+                           Foreground="AliceBlue"
+                           FontWeight="Bold"/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="addCategoryAppBarButton"
+                          Icon="NewFolder"
+                          Label="Add Category"
+                          Foreground="AliceBlue"
+                          Click="addCategoryAppBarButton_Click"/>
+        </CommandBar>
+        <Grid Grid.Row="1"
+              Margin="5,10">
+            <RelativePanel ScrollViewer.VerticalScrollMode="Enabled">
+                <ListView x:Name="categoriesList"
+                          IsItemClickEnabled="False"
+                          SelectionMode="None" 
+                          Background="#4f707d"
+                          RelativePanel.AlignLeftWithPanel="True"
+                          RelativePanel.AlignRightWithPanel="True"
+                          RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                          ItemTemplate="{StaticResource categoriesItemTemplate}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="MinHeight" Value="40"/>
+                            <Setter Property="Height" Value="Auto"/>
+                            <Setter Property="Margin" Value="0,1,0,0"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </RelativePanel>
+        </Grid>
+        <controls10:ModalDialog x:Name="BusyModal" 
+                                CanBackButtonDismiss="False" 
+                                DisableBackButtonWhenModal="True"
+                                IsModal="False"
+                                Grid.RowSpan="2">
+            <controls10:ModalDialog.ModalBackground>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#B2FFFFFF" />
+                    <GradientStop Offset="1" Color="#B2F54E00" />
+                </LinearGradientBrush>
+            </controls10:ModalDialog.ModalBackground>
+            <controls10:ModalDialog.ModalContent>
+                <Viewbox Height="32" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <ProgressRing x:Name="BusyRing" Width="24" Height="24" Margin="12,0"
+                            Foreground="White" IsActive="{Binding IsModal, ElementName=BusyModal}" />
+                        <TextBlock x:Name="BusyText" Text="Please Wait..." VerticalAlignment="Center" Foreground="White" />
+                    </StackPanel>
+                </Viewbox>
+            </controls10:ModalDialog.ModalContent>
+        </controls10:ModalDialog>
+    </Grid>
+
+</Page>

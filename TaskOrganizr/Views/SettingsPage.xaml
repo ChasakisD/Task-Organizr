@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="TDLApi.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TDLApi.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/TDLDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bg.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CommandBar x:Name="myCommandBar">
+            <CommandBar.Content>
+                <TextBlock x:Name="pageNameTextBlock" 
+                           Margin="20,15,10,11"
+                           Text="Settings"
+                           FontSize="16"
+                           Foreground="AliceBlue"
+                           FontWeight="Bold"/>
+            </CommandBar.Content>
+        </CommandBar>
+        <StackPanel Margin="30"
+                    Padding="20,15"
+                    Grid.Row="1">
+            <StackPanel.Background>
+                <SolidColorBrush Color="AliceBlue"
+                                 Opacity="0.8"/>
+            </StackPanel.Background>
+            <ComboBox x:Name="themeComboBox"
+                      Header="Select a Theme"
+                      SelectionChanged="themeComboBox_SelectionChanged">
+                <ComboBoxItem x:Name="lightTheme">Light Theme</ComboBoxItem>
+                <ComboBoxItem x:Name="darkTheme">Dark Theme</ComboBoxItem>
+                <ComboBoxItem x:Name="dayNightTheme">DayNight Theme</ComboBoxItem>
+            </ComboBox>
+            <ToggleSwitch x:Name="notify1dayBef"
+                          Margin="0,15,0,0"
+                          Header="Notify One Day Before Task Expires"
+                          Toggled="notify1dayBef_Toggled"/>
+        </StackPanel>
+    </Grid>
+</Page>

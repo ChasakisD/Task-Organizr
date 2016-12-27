@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{843213BD-FBDB-43C7-8523-F6FF2293FB61}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TaskOrganizr</RootNamespace>
+    <AssemblyName>Task Organizr</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>TryMobileApp_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\AppList\AppList.scale-100.png" />
+    <Content Include="Assets\AppList\AppList.scale-125.png" />
+    <Content Include="Assets\AppList\AppList.scale-150.png" />
+    <Content Include="Assets\AppList\AppList.scale-200.png" />
+    <Content Include="Assets\AppList\AppList.scale-400.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-16.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-16_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-20.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-20_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-24.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-256.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-256_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-30.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-30_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-32.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-32_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-36.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-36_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-40.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-40_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-48.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-48_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-60.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-60_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-64.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-64_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-72.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-72_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-80.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-80_altform-unplated.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-96.png" />
+    <Content Include="Assets\AppList\AppList.targetsize-96_altform-unplated.png" />
+    <Content Include="Assets\Badge\Badge.scale-100.png" />
+    <Content Include="Assets\Badge\Badge.scale-125.png" />
+    <Content Include="Assets\Badge\Badge.scale-150.png" />
+    <Content Include="Assets\Badge\Badge.scale-200.png" />
+    <Content Include="Assets\Badge\Badge.scale-400.png" />
+    <Content Include="Assets\Large\Large310x310Logo.scale-100.png" />
+    <Content Include="Assets\Large\Large310x310Logo.scale-125.png" />
+    <Content Include="Assets\Large\Large310x310Logo.scale-150.png" />
+    <Content Include="Assets\Large\Large310x310Logo.scale-200.png" />
+    <Content Include="Assets\Large\Large310x310Logo.scale-400.png" />
+    <Content Include="Assets\Medium\Medium150x150Logo.scale-100.png" />
+    <Content Include="Assets\Medium\Medium150x150Logo.scale-125.png" />
+    <Content Include="Assets\Medium\Medium150x150Logo.scale-150.png" />
+    <Content Include="Assets\Medium\Medium150x150Logo.scale-200.png" />
+    <Content Include="Assets\Medium\Medium150x150Logo.scale-400.png" />
+    <Content Include="Assets\Small\Small71x71Logo.scale-100.png" />
+    <Content Include="Assets\Small\Small71x71Logo.scale-125.png" />
+    <Content Include="Assets\Small\Small71x71Logo.scale-150.png" />
+    <Content Include="Assets\Small\Small71x71Logo.scale-200.png" />
+    <Content Include="Assets\Small\Small71x71Logo.scale-400.png" />
+    <Content Include="Assets\SplashScreen\SplashScreen.scale-100.png" />
+    <Content Include="Assets\Store\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Store\StoreLogo.scale-150.png" />
+    <Content Include="Assets\Store\StoreLogo.scale-200.png" />
+    <Content Include="Assets\Store\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide\Wide310x150Logo.scale-400.png" />
+    <Content Include="Fonts\MyriadPro_Regular.ttf" />
+    <Content Include="Fonts\MyriadPro-Light.ttf" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FlipViewIndicator.cs" />
+    <Compile Include="DataModel\API.cs" />
+    <Compile Include="DataModel\BackgroundTask.cs" />
+    <Compile Include="DataModel\Category.cs" />
+    <Compile Include="DataModel\HamburgerItem.cs" />
+    <Compile Include="DataModel\List.cs" />
+    <Compile Include="DataModel\TaskItem.cs" />
+    <Compile Include="DataModel\TaskItemExtented.cs" />
+    <Compile Include="DataModel\TodoItem.cs" />
+    <Compile Include="DataModel\User.cs" />
+    <Compile Include="DataModel\UserInfo.cs" />
+    <Compile Include="DataModel\UserSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoriesPage.xaml.cs">
+      <DependentUpon>CategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExpiredTasksPage.xaml.cs">
+      <DependentUpon>ExpiredTasksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HamburgerFrame.xaml.cs">
+      <DependentUpon>HamburgerFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListPage.xaml.cs">
+      <DependentUpon>ListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NoCategories.xaml.cs">
+      <DependentUpon>NoCategories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NoLists.xaml.cs">
+      <DependentUpon>NoLists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TasksPage.xaml.cs">
+      <DependentUpon>TasksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TutorialFlipView.xaml.cs">
+      <DependentUpon>TutorialFlipView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\addlist.png" />
+    <Content Include="Images\bg.png" />
+    <Content Include="Images\doneall.png" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\login.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\playlistadd_final.png" />
+    <Content Include="Images\profile.png" />
+    <Content Include="Images\register.png" />
+    <Content Include="Images\taskOrganizrLogo.png" />
+    <Content Include="Images\Tutorial\first.png" />
+    <Content Include="Images\warning.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Resource\TDLDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CategoriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExpiredTasksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HamburgerFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NoCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NoLists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TasksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TutorialFlipView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.15.0">
+      <Name>SQLite for Universal Windows Platform</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaskOrganizrBackgroundTask\TaskOrganizrBackgroundTask.csproj">
+      <Project>{52e14f77-87ec-4b10-9d1a-5a3974e9fa49}</Project>
+      <Name>TaskOrganizrBackgroundTask</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="TDLApi.Views.NoCategories"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TDLApi.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/TDLDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <CommandBar x:Name="myCommandBar">
+            <CommandBar.Content>
+                <TextBlock x:Name="pageNameTextBlock" 
+                           Margin="20,15,10,11"
+                           Text="Add a Category"
+                           FontSize="16"
+                           Foreground="AliceBlue"
+                           FontWeight="Bold" />
+            </CommandBar.Content>
+        </CommandBar>
+        <StackPanel Grid.Row="1"
+                       Margin="20">
+            <TextBlock x:Name="nocatstext"
+                       FontFamily="Fonts/MyriadPro_Regular.ttf#Myriad Pro"
+                       FontSize="20"
+                       Text="No Categories"
+                       Margin="0,20,0,20"
+                       Foreground="AliceBlue"
+                       HorizontalAlignment="Center"/>
+            <RelativePanel>
+                <Ellipse x:Name="caticon"
+                         Width="120"
+                         Height="120"
+                         Margin="0,0,0,0"
+                         Stroke="Red"
+                         StrokeThickness="2"
+                         Fill="OrangeRed"
+                         RelativePanel.AlignHorizontalCenterWithPanel="True">
+                </Ellipse>
+                <TextBlock FontFamily="Segoe MDL2 Assets"
+                           FontSize="48"
+                           Text="&#xE8F4;"
+                           Foreground="AntiqueWhite"
+                           RelativePanel.AlignHorizontalCenterWith="caticon"
+                           RelativePanel.AlignVerticalCenterWith="caticon"/>
+            </RelativePanel>
+            <TextBlock x:Name="nocataddtext"
+                       FontFamily="Fonts/MyriadPro-Light.ttf#Myriad Pro"
+                       FontSize="12"
+                       Text="Click the add(+) button to add a category"
+                       Margin="0,30,0,0"
+                       Foreground="AliceBlue"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"/>
+            <Button Background="OrangeRed"
+                    Foreground="AntiqueWhite"
+                    Width="60"
+                    Height="60"
+                    Margin="0,20,30,30"
+                    FontFamily="Segoe MDL2 Assets"
+                    Content="&#xE710;"
+                    FontSize="16"
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource CircleButton}"
+                    Click="addCatButton_Click"/>
+
+        </StackPanel>
+    </Grid>
+
+</Page>

@@ -1,0 +1,155 @@
+﻿<Page
+    x:Class="TDLApi.Views.HamburgerFrame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TDLApi.Views"
+    xmlns:model="using:TDLApi.DataModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/TDLDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ImageTemplate" x:DataType="model:HamburgerItem">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Line Opacity="0.5" 
+                          X1="0" Y1="0" 
+                          X2="1" Y2="0" 
+                          Stretch="Fill" 
+                          Stroke="White" 
+                          StrokeThickness="1"
+                          Visibility="{x:Bind Line, Converter={StaticResource strtoVis}}"/>
+                    <Grid Width="240" 
+                          Height="50"
+                          Grid.Row="1"
+                          VerticalAlignment="Center"
+                          Visibility="{x:Bind Image, Converter={StaticResource strtoVis}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="48" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Ellipse Width="25"
+                                 Height="25"
+                                 VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding Image}" 
+                                            Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"> 
+                            <TextBlock Grid.Column="1"
+                                       Text="{x:Bind Email}" 
+                                       Foreground="White" 
+                                       FontSize="12" />
+                            <TextBlock Text="Sign out" 
+                                       FontSize="16" 
+                                       Margin="0,1,0,0"
+                                       Foreground="White" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Width="240" Height="50" 
+                          Grid.Row="1"
+                          Visibility="{x:Bind Icon, Converter={StaticResource strtoVis}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="48" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <RelativePanel Grid.Column="0"
+                                       Width="48"
+                                       Height="50"
+                                       Visibility="{x:Bind Icon, Converter={StaticResource strtoVis}}">
+                            <SymbolIcon x:Name="symbolIcon"
+                                        Symbol="{x:Bind Icon, Mode=OneWay}" 
+                                        Foreground="White"
+                                        RenderTransformOrigin="0.5,0.5"
+                                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                        RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <!-- I dont want to be pre-compiled, so i use binding -->
+                            <Rectangle Height="50"
+                                       Width="5"
+                                       Fill="DarkRed"
+                                       Visibility="{Binding hasRect, Converter={StaticResource strtoVis}}"
+                                       RelativePanel.AlignLeftWithPanel="True"/>    
+                        </RelativePanel>
+                        <TextBlock Grid.Column="1" 
+                                   Text="{x:Bind Name, Mode=OneWay}" 
+                                   FontSize="16"
+                                   Margin="10,0,0,0"
+                                   VerticalAlignment="Center" 
+                                   Foreground="White" />
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="hamGrid" 
+          SizeChanged="hamGrid_SizeChanged">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="wideView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1280" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="hamburgerMenuControl.IsPaneOpen" Value="True"/>
+                        <Setter Target="hamburgerMenuControl.DisplayMode" Value="Inline"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="narrowView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="hamburgerMenuControl.IsPaneOpen" Value="False"/>
+                        <Setter Target="hamburgerMenuControl.DisplayMode" Value="CompactOverlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Controls:HamburgerMenu x:Name="hamburgerMenuControl" 
+                                PaneBackground="#FF2B2B2B"
+                                OpenPaneLength="240"
+                                Foreground="White"
+                                DisplayMode="CompactOverlay"
+                                ItemTemplate="{StaticResource ImageTemplate}"
+                                ItemsSource="{x:Bind items, Mode=TwoWay}"
+                                OptionsItemTemplate="{StaticResource ImageTemplate}"
+                                OptionsItemsSource="{x:Bind optionItems}"
+                                ItemClick="OnMenuItemClick"
+                                OptionsItemClick="OnMenuItemClick"
+                                Style="{StaticResource hamStyle}">
+            <Frame x:Name="contentFrame"
+                   Background="#385966">
+                <Grid x:Name="frameGrid">
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <TextBlock Foreground="AliceBlue"
+                                   Text="Simple ToDo List"
+                                   FontSize="38"
+                                   FontFamily="Fonts/MyriadPro-Light.ttf#Myriad Pro"
+                                   TextAlignment="Center">
+                        </TextBlock>
+                        <TextBlock Margin="0,-5,0,0"
+                                   Foreground="AliceBlue"
+                                   FontSize="20"
+                                   FontFamily="Fonts/MyriadPro-Light.ttf#Myriad Pro"
+                                   TextAlignment="Center">
+                        Universal Windows Application
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Frame>
+        </Controls:HamburgerMenu>
+    </Grid>
+</Page>
