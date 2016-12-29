@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="64363F10C57CB.ToDoListOrganizr" Publisher="CN=46294968-F1D9-4460-A56A-C4BCFA6C3A5F" Version="1.1.0.0" />
+  <Identity Name="64363F10C57CB.TaskOrganizr" Publisher="CN=46294968-F1D9-4460-A56A-C4BCFA6C3A5F" Version="1.1.5.0" />
   <mp:PhoneIdentity PhoneProductId="b7657ddb-b2f7-4885-9e64-d4f2feaf51e1" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>ToDo List Organizr</DisplayName>
+    <DisplayName>Task Organizr</DisplayName>
     <PublisherDisplayName>Chasakis D.</PublisherDisplayName>
     <Logo>assets\Store\StoreLogo.png</Logo>
   </Properties>
@@ -28,11 +28,11 @@
           <uap:Rotation Preference="portrait" />
           <uap:Rotation Preference="landscape" />
         </uap:InitialRotationPreference>
-        <uap:LockScreen BadgeLogo="assets\Badge\Badge.png" Notification="badge" />
       </uap:VisualElements>
       <Extensions>
         <Extension Category="windows.backgroundTasks" EntryPoint="TaskOrganizrBackgroundTask.BackgroundTaskExpired">
           <BackgroundTasks>
+            <Task Type="systemEvent" />
             <Task Type="timer" />
             <Task Type="pushNotification" />
           </BackgroundTasks>
